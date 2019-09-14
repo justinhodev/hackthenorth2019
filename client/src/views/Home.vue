@@ -57,7 +57,7 @@ export default {
         name: 'series-1',
         data: [30, 40, 35, 50, 49, 60, 70, 91]
       }],
-      commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2" }, { productName: "Kraft", subtitle: "Dinner" }]
+      commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2", purchaseDate: "12/12/12" }, { productName: "Kraft", subtitle: "Dinner", purchaseDate: "12/12/12" }]
     }
   },
 };
