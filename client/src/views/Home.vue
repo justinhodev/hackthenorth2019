@@ -41,7 +41,7 @@ export default {
           labels: {
             show: true,
             style: {
-              colors: ['#FEF1F0', '#FEF1F0', '#FEF1F0', '#FEF1F0', '#FEF1F0','#FEF1F0','#FEF1F0','#FEF1F0'],
+              colors: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF','#FFF','#FFF','#FFF'],
             }
           }
           }
