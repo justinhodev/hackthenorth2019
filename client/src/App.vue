@@ -56,7 +56,7 @@ export default {
   name: 'App',
   data: () => ({
     items: [
-      { title: 'Dashboard', icon: 'mdi-view-dashboard', redirect: 'dashboard' },
+      { title: 'Dashboard', icon: 'mdi-view-dashboard', redirect: '/' },
       { title: 'Goals', icon: 'mdi-target', redirect: 'goals' },
       { title: 'Settings', icon: 'mdi-settings', redirect: 'settings' },
       { title: 'Help', icon: 'mdi-help-box', redirect: 'help' }
