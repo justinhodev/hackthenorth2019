@@ -1,8 +1,8 @@
 <template>
   <v-list-item two-line>
     <v-list-item-content>
-      <v-list-item-title>Single-line item</v-list-item-title>
-      <v-list-item-subtitle>Single-line item</v-list-item-subtitle>
+      <v-list-item-title>{{product.productName}}</v-list-item-title>
+      <v-list-item-subtitle>{{product.subtitle}}</v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-icon>
       <v-icon>mdi-watch</v-icon>
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  props: ["product"]
 
 }
 </script>

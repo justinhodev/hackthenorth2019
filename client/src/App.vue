@@ -62,8 +62,6 @@ export default {
       { title: 'Help', icon: 'mdi-help-box', redirect: 'help' }
     ],
     right: null,
-
-    //
   }),
 };
 
