@@ -1,15 +1,14 @@
-const EXPRESS = require("express");
-const APP = EXPRESS();
-const API_PORT = 8081;
+const express = require('express');
+const app = express();
 
-APP.get("/", function(req, res) {
-  res.send("hello world");
-});
+const routes = require('./routes');
 
-APP.post("/save", function(req, res) {
-  res.send("hello world");
-});
+const port = 8081;
 
-APP.listen(API_PORT, () =>
-  console.log(`Example app listening on port ${API_PORT}!`)
+app.use('/api', routes);
+
+app.listen(port, () =>
+  console.log(`Example app listening on port ${port}!`)
 );
+
+module.exports = app;
