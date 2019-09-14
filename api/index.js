@@ -1,20 +1,29 @@
-var express = require("express");
-var app = express();
-var admin = require("firebase-admin");
+const EXPRESS = require("express");
+const APP = EXPRESS();
+const FIREBASE_ADMIN = require("firebase-admin");
+const FIREBASE_CONFIG = require("./config.json");
+const API_PORT = 8081;
+const CONFIG_ERROR = "databaseName and the service key must be set";
+const DATABASE_NAME = FIREBASE_CONFIG["firebaseDatabaseName"];
+const SERVICE_KEY_PATH = FIREBASE_CONFIG["serviceKeyPath"];
 
-admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
-  databaseURL: "https://<DATABASE_NAME>.firebaseio.com"
+if (!DATABASE_NAME || !SERVICE_KEY_PATH) {
+  console.error(CONFIG_ERROR);
+}
+
+FIREBASE_ADMIN.initializeApp({
+  credential: FIREBASE_ADMIN.credential.cert(),
+  databaseURL: `https://${DATABASE_NAME}.firebaseio.com`
 });
 
-var port = 8081;
-
-app.get("/", function(req, res) {
+APP.get("/", function(req, res) {
   res.send("hello world");
 });
 
-app.post("/save", function(req, res) {
+APP.post("/save", function(req, res) {
   res.send("hello world");
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+APP.listen(API_PORT, () =>
+  console.log(`Example app listening on port ${API_PORT}!`)
+);
