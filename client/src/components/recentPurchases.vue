@@ -5,7 +5,10 @@
       <v-list-item-subtitle>{{product.subtitle}}</v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-icon>
-      <v-icon>mdi-watch</v-icon>
+      <v-chip>
+        <v-icon class="pr-1">mdi-history</v-icon>
+        {{product.purchaseDate}}
+      </v-chip>
     </v-list-item-icon>
   </v-list-item>
 </template>

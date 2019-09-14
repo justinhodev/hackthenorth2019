@@ -1,19 +1,33 @@
 <template>
   <div>
     <v-container>
-      <v-card dark class="col-4">
-        <apexchart height="250" type="bar" :options="chartOptions" :series="series"></apexchart>
+      <v-card
+        dark
+        class="col-4"
+      >
+        <apexchart
+          height="250"
+          type="bar"
+          :options="chartOptions"
+          :series="series"
+        ></apexchart>
       </v-card>
     </v-container>
     <v-container>
-      <v-card dark class="mx-auto" tile>
+      <v-card
+        dark
+        class="mx-auto"
+        tile
+      >
         <v-card-title>Commonly Purchased Items</v-card-title>
         <v-list dark>
-          <recentPurchases
-            v-for="commonItem in commonlyPurchasedGoods"
-            :key="commonItem.productName"
-            :product="commonItem"
-          />
+          <v-list-item-group>
+            <recentPurchases
+              v-for="commonItem in commonlyPurchasedGoods"
+              :key="commonItem.productName"
+              :product="commonItem"
+            />
+          </v-list-item-group>
         </v-list>
       </v-card>
     </v-container>
@@ -30,7 +44,7 @@ Vue.component("apexchart", VueApexCharts);
 
 export default {
   components: { recentPurchases },
-  data: function() {
+  data: function () {
     return {
       chartOptions: {
         chart: {
@@ -44,19 +58,14 @@ export default {
               colors: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF','#FFF','#FFF','#FFF'],
             }
           }
-          }
         }
+      }
       ,
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 35, 50, 49, 60, 70, 91]
-        }
-      ],
-      commonlyPurchasedGoods: [
-        { productName: "test", subtitle: "test2" },
-        { productName: "Kraft", subtitle: "Dinner" }
-      ]
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 35, 50, 49, 60, 70, 91]
+      }],
+      commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2", purchaseDate: "12/12/12" }, { productName: "Kraft", subtitle: "Dinner", purchaseDate: "12/12/12" }]
     }
   }
 };
