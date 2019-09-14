@@ -12,7 +12,7 @@ if (!DATABASE_NAME || !SERVICE_KEY_PATH) {
 }
 
 FIREBASE_ADMIN.initializeApp({
-  credential: FIREBASE_ADMIN.credential.cert(),
+  credential: FIREBASE_ADMIN.credential.cert(SERVICE_KEY_PATH),
   databaseURL: `https://${DATABASE_NAME}.firebaseio.com`
 });
 
