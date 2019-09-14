@@ -21,11 +21,13 @@
       >
         <v-card-title>Commonly Purchased Items</v-card-title>
         <v-list dark>
-          <recentPurchases
-            v-for="commonItem in commonlyPurchasedGoods"
-            :key="commonItem.productName"
-            :product="commonItem"
-          />
+          <v-list-item-group>
+            <recentPurchases
+              v-for="commonItem in commonlyPurchasedGoods"
+              :key="commonItem.productName"
+              :product="commonItem"
+            />
+          </v-list-item-group>
         </v-list>
       </v-card>
     </v-container>
