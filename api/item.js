@@ -1,11 +1,11 @@
 const db = require("./firebase");
 
-const receipt = db.collection("receipts");
+const items = db.collection("items");
 
 module.exports = {
-  getReceipts: async function(req, res) {
+  getItems: async function(req, res) {
     try {
-      let data = await receipt.get();
+      let data = await items.get();
 
       if (!data) {
         console.log("nothing found");
@@ -24,9 +24,9 @@ module.exports = {
       res.json({});
     }
   },
-  getReceiptByStore: async function(req, res) {
+  getItemByName: async function(req, res) {
     try {
-      let data = await receipt.where("store", "==", req.params.store).get();
+      let data = await items.where("name", "==", req.params.name).get();
 
       if (!data) {
         console.log("nothing found");
@@ -45,10 +45,10 @@ module.exports = {
       res.json({});
     }
   },
-  postReceipt: async function(req, res) {
+  addItem: async function(req, res) {
     try {
-      const result = await receipt.add(req.body);
-      res.json({ receipt: result.id });
+      const result = await items.add(req.body);
+      res.json({ item: result.id });
     } catch (e) {
       console.log(e);
       res.json({});
