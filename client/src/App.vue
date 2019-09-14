@@ -42,7 +42,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-spacer></v-spacer>
     <!-- TODO: Add the logout and user profile here -->
     <v-content>
       <router-view />
