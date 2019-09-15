@@ -3,8 +3,11 @@
     <div class="row">
       <div class="col-6 heightAuto">
         <v-container class="height100">
-          <v-card class="col-4 height100 cardStyle">
-            {{"This month, you spent the most money on COFFEE."}}
+          <v-card class="col-4 height100 cardStyle title">
+            This month, you spent the most money on {{items[1][0]}}.
+
+            Consider reducing this to better finance, in ten years, you can save the money and earn
+            {{}}
 
           </v-card>
         </v-container>
@@ -22,13 +25,13 @@
         class="mx-auto cardStyle"
         tile
       >
-        <v-card-title>Commonly Purchased Items</v-card-title>
+        <v-card-title>Recently Purchased Items</v-card-title>
         <v-list>
           <v-list-item-group>
             <recentPurchases
-              v-for="commonItem in commonlyPurchasedGoods"
-              :key="commonItem.productName"
-              :product="commonItem"
+              v-for="item in items[0]"
+              :key="item.productName"
+              :product="item"
             />
           </v-list-item-group>
         </v-list>
@@ -46,39 +49,39 @@ import { mapActions, mapState } from "vuex"
 Vue.use(VueApexCharts);
 Vue.component("apexchart", VueApexCharts);
 
-function countStores(receipts) {
-  var countPerStore = {};
-  receipts.forEach(element => {
-    if (!countPerStore[element]) {
-      countPerStore[element] = 1;
-    }
-    else {
-      countPerStore[element] += 1;
-    }
-  });
-  console.log(countPerStore);
-  return countPerStore;
-}
+
 
 export default {
   components: { recentPurchases, circleplot },
   created() {
     this.$store.dispatch("getReceipts")
+    this.$store.dispatch("getItems")
   },
-  // computed: mapState({ receipts: state => state.receipts }),
-  // data: function () {
-  //   return {
-  //     commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2", purchaseDate: "12/12/12" }, { productName: "Kraft", subtitle: "Dinner", purchaseDate: "12/12/12" }],
-  //     receipts: this.$store.state.receipts
   computed: mapState({
-    receipts: state => state.receipts.data
+    receipts: state => state.receipts.data,
+    items: state => {
+      function countStores(receipts) {
+        if (!receipts) return {};
+        var countPerStore = {};
+        receipts.forEach(element => {
+          console.log(element)
+          if (!countPerStore[element.name]) {
+            countPerStore[element.name] = 1;
+          }
+          else {
+            countPerStore[element.name] += 1;
+          }
+        }
+        );
+        return countPerStore;
+      }
+      var a = Object.entries(countStores(state.items.data));
+      var res = Math.max.apply(Math, Object.entries(countStores(state.items.data)).map(function (o) { console.log("o", o); return o[1]; }))
+
+
+      return [state.items.data, a.find(function (o) { return o[1] == res; })]
+    },
   }),
-  data: function () {
-    return {
-      commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2", purchaseDate: "12/12/12" }, { productName: "Kraft", subtitle: "Dinner", purchaseDate: "12/12/12" }],
-      //receipts: this.$store.state.receipts
-    }
-  }
 };
 </script>
 
