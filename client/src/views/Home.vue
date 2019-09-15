@@ -5,7 +5,6 @@
         <v-container class="height100">
           <v-card class="col-4 height100 cardStyle title">
             <span>This month, you spent the most money on {{items[1][0]}}.</span>
-
           </v-card>
         </v-container>
       </div>

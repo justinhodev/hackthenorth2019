@@ -4,7 +4,7 @@
     <apexchart
       v-if="stores.length >= 0 && spendings.length >= 0"
       type="donut"
-      :options="{labels: stores, 
+      :options="{labels: stores,
       title:{text: 'Spending per Store', style: { fontSize:  '20px'}} }"
       :series="spendings"
     ></apexchart>
