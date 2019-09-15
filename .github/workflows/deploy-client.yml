@@ -3,11 +3,6 @@ name: Firebase-CI
 on:
   pull_request:
     - master
-  push:
-    paths:
-    - 'client/*'
-    - 'client/*/*'
-    - 'client/*/*/*'
 
 jobs:
   build:
