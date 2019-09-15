@@ -1,8 +1,8 @@
 <template>
   <div>
+
     <apexchart
       v-if="stores.length >= 0 && spendings.length >= 0"
-      height="250"
       type="donut"
       :options="{labels: stores }"
       :series="spendings"
