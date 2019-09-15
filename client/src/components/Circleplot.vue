@@ -1,12 +1,12 @@
 <template>
   <div>
     <apexchart
+      v-if="stores.length >= 0 && spendings.length >= 0"
       height="250"
       type="donut"
-      :options="{labels: data[0]}"
-      :series="data[1]"
+      :options="{labels: stores }"
+      :series="spendings"
     ></apexchart>
-    <span>{{data}}</span>
   </div>
 </template>
 
@@ -14,11 +14,16 @@
 import VueApexCharts from "vue-apexcharts";
 import Vue from "vue";
 
-
-
 Vue.use(VueApexCharts);
 export default {
-  props: ["data"],
+  computed: {
+    stores() {
+      return this.$store.getters.getStoreNames
+    },
+    spendings() {
+      return this.$store.getters.getSpendingByStore
+    }
+  }
 }
 </script>
 
