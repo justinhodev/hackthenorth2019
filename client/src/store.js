@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import { getAllReceipts } from './api/receipts';
-import { getAllItems } from './api/items';
+import { getAllReceipts } from "./api/receipts";
+import { getAllItems } from "./api/items";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -22,23 +22,33 @@ export default new Vuex.Store({
   actions: {
     getReceipts({ commit }) {
       getAllReceipts().then(receipts => {
-        commit('setReceipts', receipts);
+        commit("setReceipts", receipts);
       });
     },
     getItems({ commit }) {
       getAllItems().then(items => {
-        commit('setItems', items);
+        commit("setItems", items);
       });
     }
   },
   getters: {
     getStoreNames: state => {
       if (state.receipts.length <= 0) return [];
-      return state.receipts.data.map(receipt => receipt.store).filter((value, index, self) => self.indexOf(value) === index);
+      return state.receipts.data
+        .map(receipt => receipt.store)
+        .filter((value, index, self) => self.indexOf(value) === index);
     },
     getSpendingByStore: state => {
       if (state.receipts.length <= 0) return [];
-      return state.receipts.data.map(receipt => receipt.total).filter((value, index, self) => self.indexOf(value) === index);
+      return state.receipts.data
+        .map(receipt => receipt.total)
+        .filter((value, index, self) => self.indexOf(value) === index);
+    },
+    getAllItems: state => {
+      if (state.receipts.length <= 0) return [];
+      return state.receipts.data.map(item => {
+        return { productName: item.name, price: item.price, subtitle: "test" };
+      });
     }
   }
-})
+});
