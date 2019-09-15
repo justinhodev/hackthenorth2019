@@ -1,13 +1,76 @@
 <template>
-  <HelloWorld />
+  <div>
+    <v-container>
+      <v-card
+        dark
+        class="col-4"
+      >
+        <apexchart
+          height="250"
+          type="bar"
+          :options="chartOptions"
+          :series="series"
+        ></apexchart>
+      </v-card>
+    </v-container>
+    <v-container>
+      <v-card
+        dark
+        class="mx-auto"
+        tile
+      >
+        <v-card-title>Most Purchased Items</v-card-title>
+        <v-list dark>
+          <v-list-item-group>
+            <recentPurchases
+              v-for="commonItem in commonlyPurchasedGoods"
+              :key="commonItem.productName"
+              :product="commonItem"
+            />
+          </v-list-item-group>
+        </v-list>
+      </v-card>
+    </v-container>
+  </div>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld';
+import recentPurchases from "../components/recentPurchases";
+import Vue from "vue";
+import VueApexCharts from "vue-apexcharts";
+Vue.use(VueApexCharts);
+
+Vue.component("apexchart", VueApexCharts);
 
 export default {
-  components: {
-    HelloWorld,
-  },
+  components: { recentPurchases },
+  data: function () {
+    return {
+      chartOptions: {
+        chart: {
+          id: "vuechart-example"
+        },
+        xaxis: {
+          categories: ['gas', 'rent', 'groceries', 'utilities', 'retail', 'other'],
+          labels: {
+            show: true,
+            style: {
+              colors: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF','#FFF','#FFF','#FFF'],
+            }
+          }
+        }
+      }
+      ,
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 35, 50, 49, 60]
+      }],
+      commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2", purchaseDate: "12/12/12" }, { productName: "Kraft", subtitle: "Dinner", purchaseDate: "12/12/12" }]
+    }
+  }
 };
 </script>
+
+<style>
+
+</style>

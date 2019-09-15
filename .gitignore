@@ -60,6 +60,12 @@ typings/
 # next.js build output
 .next
 
+<<<<<<< HEAD
 # config file
 config.json
 hackthenorth2019-2b354-firebase-adminsdk-dmx6v-975ad5a795.json
+=======
+# config files
+config.json
+api/hackthenorth2019-2b354-firebase-adminsdk-dmx6v-975ad5a795.json
+>>>>>>> frontend
