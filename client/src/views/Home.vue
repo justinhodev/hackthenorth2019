@@ -1,5 +1,5 @@
 <template>
- <div class="col-12">
+ <div class="col-12 spanning">
    <div class="row"> 
      <div class="col-6">
       <v-container>
@@ -7,9 +7,10 @@
           dark 
           class="col-4"
         >
-          <span>
-            {{"This month, you spent the most money on COFFEE."}}
-            </span>
+        <div class="flexBoxColumn">
+          {{"This month, you spent the most money on COFFEE."}}
+          <img class="fakeBox" src="../assets/fakeBox.png">
+        </div>
         </v-card>
       </v-container>    
      </div>
@@ -70,3 +71,20 @@ export default {
   }
 };
 </script>
+
+<style>
+.spanning{
+  width: 100%;
+  height: 100%;
+}
+
+.fakeBox{
+  width: 100px;
+  height:204px;
+}
+
+.flexBoxColumn{
+  display: flex;
+  flex-direction: column;
+} 
+</style>
