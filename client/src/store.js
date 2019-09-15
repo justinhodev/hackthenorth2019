@@ -21,5 +21,15 @@ export default new Vuex.Store({
         commit('setReceipts', receipts);
       });
     }
+  },
+  getters: {
+    getStoreNames: state => {
+      if (state.receipts.length <= 0) return [];
+      return state.receipts.data.map(receipt => receipt.store).filter((value, index, self) => self.indexOf(value) === index);
+    },
+    getSpendingByStore: state => {
+      if (state.receipts.length <= 0) return [];
+      return state.receipts.data.map(receipt => receipt.total).filter((value, index, self) => self.indexOf(value) === index);
+    }
   }
 })

@@ -19,7 +19,7 @@
             dark
             class="col-4"
           >
-            <circleplot :data="receipts"></circleplot>
+            <circleplot></circleplot>
           </v-card>
         </v-container>
       </div>
@@ -74,11 +74,13 @@ export default {
   created() {
     this.$store.dispatch("getReceipts")
   },
-  // computed: mapState({ receipts: state => state.receipts }),
+  computed: mapState({
+    receipts: state => state.receipts.data
+  }),
   data: function () {
     return {
       commonlyPurchasedGoods: [{ productName: "test", subtitle: "test2", purchaseDate: "12/12/12" }, { productName: "Kraft", subtitle: "Dinner", purchaseDate: "12/12/12" }],
-      receipts: this.$store.state.receipts
+      //receipts: this.$store.state.receipts
     }
   }
 };
