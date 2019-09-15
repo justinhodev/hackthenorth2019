@@ -68,7 +68,7 @@ export default {
 
 <style>
 .namelogo{
-  width: 80px;
-  height: 20px;
+  width: 90px;
+  height: 30px;
 }
 </style>
