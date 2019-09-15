@@ -1,16 +1,13 @@
 <template>
  <div class="col-12 spanning">
    <div class="row"> 
-     <div class="col-6">
-      <v-container>
+     <div class="col-6 heightAuto">
+      <v-container class="height100">
         <v-card
           dark 
-          class="col-4"
+          class="col-4 height100" 
         >
-        <div class="flexBoxColumn">
           {{"This month, you spent the most money on COFFEE."}}
-          <img class="fakeBox" src="../assets/fakeBox.png">
-        </div>
         </v-card>
       </v-container>    
      </div>
@@ -83,8 +80,11 @@ export default {
   height:204px;
 }
 
-.flexBoxColumn{
-  display: flex;
-  flex-direction: column;
-} 
+.heightAuto{
+  height: auto;
+}
+
+.height100{
+  height: 100%;
+}
 </style>
