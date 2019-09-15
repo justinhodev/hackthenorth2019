@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
     - master
+    paths:
+    - 'client/*'
 
 jobs:
   build:
@@ -19,6 +21,7 @@ jobs:
        
     - name: Install Dependencies
       run: |
+        cd client
         npm i -g @vue/cli firebase-tools
         npm ci
         npm run lint
