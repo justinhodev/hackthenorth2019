@@ -4,10 +4,7 @@
       <div class="col-6 heightAuto">
         <v-container class="height100">
           <v-card class="col-4 height100 cardStyle title">
-            This month, you spent the most money on {{items[1][0]}}.
-
-            Consider reducing this to better finance, in ten years, you can save the money and earn
-            {{}}
+            <span>This month, you spent the most money on {{items[1][0]}}.</span>
 
           </v-card>
         </v-container>
