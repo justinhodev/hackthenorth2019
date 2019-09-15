@@ -7,6 +7,9 @@
           dark 
           class="col-4"
         >
+          <span>
+            {{"This month, you spent the most money on COFFEE."}}
+            </span>
         </v-card>
       </v-container>    
      </div>

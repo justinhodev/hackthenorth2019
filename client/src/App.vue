@@ -6,7 +6,7 @@
       app
     >
       <v-toolbar-title class="headline">
-        <span>Vuetify</span>
+        <span> <img class="namelogo" src="./assets/piggyoureal.png"> <img class="fakeLogo" src="./assets/piggyoulogo.png"></span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
@@ -65,3 +65,14 @@ export default {
 };
 
 </script>
+
+<style>
+.fakeLogo{
+  width: 30px;
+  height: 30px;
+}
+.namelogo{
+  width: 70px;
+  height: 30px;
+}
+</style>
