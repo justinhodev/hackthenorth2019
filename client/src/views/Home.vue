@@ -8,7 +8,6 @@
 
             Consider reducing this to better finance, in ten years, you can save the money and earn
             {{}}
-
           </v-card>
         </v-container>
       </div>
@@ -25,7 +24,7 @@
         class="mx-auto cardStyle"
         tile
       >
-        <v-card-title>Recently Purchased Items</v-card-title>
+        <v-card-title>Recently Purchased Items</v-card-title>=======
         <v-list>
           <v-list-item-group>
             <recentPurchases
