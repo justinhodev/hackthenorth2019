@@ -1,10 +1,7 @@
 <template>
   <div>
     <v-container>
-      <v-card
-        dark
-        class="col-4"
-      >
+      <v-card class="col-4">
         <apexchart
           height="250"
           type="bar"
@@ -15,7 +12,6 @@
     </v-container>
     <v-container>
       <v-card
-        dark
         class="mx-auto"
         tile
       >
@@ -39,7 +35,7 @@ export default {
           labels: {
             show: true,
             style: {
-              colors: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF','#FFF','#FFF','#FFF'],
+              colors: ['#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF', '#FFF'],
             }
           }
         }
@@ -56,5 +52,4 @@ export default {
 
 
 <style>
-
 </style>

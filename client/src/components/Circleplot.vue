@@ -1,10 +1,11 @@
 <template>
   <div>
+
     <apexchart
       v-if="stores.length >= 0 && spendings.length >= 0"
-      height="250"
       type="donut"
-      :options="{labels: stores }"
+      :options="{labels: stores, 
+      title:{text: 'Commonly Visited Stores', style: { fontSize:  '20px'}} }"
       :series="spendings"
     ></apexchart>
   </div>
