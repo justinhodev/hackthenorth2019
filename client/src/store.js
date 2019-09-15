@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import { getAllReceipts } from './api/receipts';
+import { getAllItems } from './api/items';
 
 Vue.use(Vuex)
 
@@ -11,14 +12,22 @@ export default new Vuex.Store({
     items: []
   },
   mutations: {
-    setReceipts(state, products) {
-      state.receipts = products;
+    setReceipts(state, receipts) {
+      state.receipts = receipts;
+    },
+    setItems(state, items) {
+      state.items = items;
     }
   },
   actions: {
     getReceipts({ commit }) {
       getAllReceipts().then(receipts => {
         commit('setReceipts', receipts);
+      });
+    },
+    getItems({ commit }) {
+      getAllItems().then(items => {
+        commit('setItems', items);
       });
     }
   },
