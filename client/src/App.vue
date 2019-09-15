@@ -6,7 +6,10 @@
       app
     >
       <v-toolbar-title class="headline">
-        <span> <img class="namelogo" src="./assets/piggyfinal.png"> </span>
+        <span> <img
+            class="namelogo"
+            src="./assets/piggyfinal.png"
+          > </span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
@@ -67,7 +70,7 @@ export default {
 </script>
 
 <style>
-.namelogo{
+.namelogo {
   width: 90px;
   height: 30px;
 }
