@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <apexchart
+      v-if="stores.length >= 0 && spendings.length >= 0"
+      height="250"
+      type="donut"
+      :options="{labels: stores }"
+      :series="spendings"
+    ></apexchart>
+  </div>
+</template>
+
+<script>
+import VueApexCharts from "vue-apexcharts";
+import Vue from "vue";
+
+Vue.use(VueApexCharts);
+export default {
+  computed: {
+    stores() {
+      return this.$store.getters.getStoreNames
+    },
+    spendings() {
+      return this.$store.getters.getSpendingByStore
+    }
+  }
+}
+</script>
+
+<style>
+</style>
