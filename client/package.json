@@ -12,10 +12,6 @@
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.0",
-<<<<<<< HEAD
-    "vue-grid-layout": "^2.3.6",
-=======
->>>>>>> c3f65d03e0d2de607ad689cfc94e95812b741b8a
     "vue-router": "^3.0.3",
     "vuetify": "^2.0.0"
   },
