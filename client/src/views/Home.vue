@@ -4,8 +4,7 @@
      <div class="col-6 heightAuto">
       <v-container class="height100">
         <v-card
-          dark 
-          class="col-4 height100" 
+          class="col-4 height100 cardStyle" 
         >
           {{"This month, you spent the most money on COFFEE."}}
         </v-card>
@@ -14,8 +13,8 @@
      <div class="col-6">
       <v-container>
         <v-card
-          dark
-          class="col-4"
+          
+          class="col-4 cardStyle"
         >
           <apexchart
             height="250"
@@ -29,12 +28,12 @@
    </div>
     <v-container>
       <v-card
-        dark
-        class="mx-auto"
+    
+        class="mx-auto cardStyle"
         tile
       >
         <v-card-title>Commonly Purchased Items</v-card-title>
-        <v-list dark>
+        <v-list>
           <v-list-item-group>
             <recentPurchases
               v-for="commonItem in commonlyPurchasedGoods"
@@ -86,5 +85,9 @@ export default {
 
 .height100{
   height: 100%;
+}
+
+.cardStyle{
+  border-radius: 10px;
 }
 </style>

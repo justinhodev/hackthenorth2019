@@ -1,10 +1,15 @@
 <template>
   <div>
         <apexchart
-          height="250"
           type="donut"
           :options="chartOptions"
           :series="series"
+          legend:{
+            labels:{
+              color: white,
+              useSeriesColor: false,
+            },
+          }
         ></apexchart>
     </div>
 </template>
