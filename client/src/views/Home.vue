@@ -1,18 +1,31 @@
 <template>
-  <div>
-    <v-container>
-      <v-card
-        dark
-        class="col-4"
-      >
-        <apexchart
-          height="250"
-          type="donut"
-          :options="chartOptions"
-          :series="series"
-        ></apexchart>
+ <div class="col-12">
+   <div class="row"> 
+     <div class="col-6">
+      <v-container>
+        <v-card
+          dark 
+          class="col-4"
+        >
         </v-card>
-    </v-container>
+      </v-container>    
+     </div>
+     <div class="col-6">
+      <v-container>
+        <v-card
+          dark
+          class="col-4"
+        >
+          <apexchart
+            height="250"
+            type="donut"
+            :options="chartOptions"
+            :series="series"
+          ></apexchart>
+          </v-card>
+      </v-container>
+     </div>
+   </div>
     <v-container>
       <v-card
         dark
@@ -31,7 +44,7 @@
         </v-list>
       </v-card>
     </v-container>
-  </div>
+ </div>
 </template>
 
 <script>
